@@ -3,9 +3,6 @@
 <head>
 <title>DTTV</title>
 
-<script src="zepto.min.js"></script>
-<script src="main.js"></script>
-
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -23,12 +20,14 @@ Your browser does not support the audio element.
 	<button id="stop"> Stop </button>
 </div>
 
-<div id="video-render"></div>
-
+<!--<div id="video-render"></div>-->
+<canvas id="video-render" width="720" height="480"> </canvas>
 <div class="info">
   <label>Filename: </label><span id="title"></span>
   <label>Mode: </label><span id="mode"></span>
 </div>
 
 </body>
+<script src="zepto.min.js"></script>
+<script src="main.js"></script>
 </html>

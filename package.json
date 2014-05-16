@@ -4,7 +4,7 @@
   "description": "Amazing player base on dtplayer and node-webkit.",
   "main": "main.html",
   "window": {
-    "width": 800,
+    "width": 720,
     "height": 600,
     "show": false,
     "title": "DTTV",

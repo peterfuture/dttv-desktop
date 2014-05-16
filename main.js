@@ -65,7 +65,9 @@ var player_status = {
     PLAYER_STATUS_EXIT:      12
 };
 
-//reg vo
+var canvas = document.getElementById("video-render");
+var context = canvas.getContext("2d");
+
 var canvas_vo = {
     id:1000,
     name:'canvas render',
@@ -76,12 +78,25 @@ var canvas_vo = {
         console.log('yeah, canvas stop ok');
     },
     vo_render:function(pic){
+
         var picture = pic.deref();
-        console.log('canvas render one frame, pts'+ picture.pts);
+        var imgdata = context.getImageData(0,0,720,480);
+        var data = picture.data0.deref();
+        for(i=0,j=0;i<720*480*3;i+=3,j+=4)
+        {
+            imgdata.data[j] = data+i;
+            imgdata.data[j+1] = data+i+1;
+            imgdata.data[j+2] = data+i+2;
+            imgdata.data[j+3] = 255;
+        }
+
+        ctx.putImageData(imgdata,0,0);
+        console.log('canvas render one frame, pts'+ picture.pts + "width *4 = "+picture.linesize0);
+        return 0;
     }
 };
 
-var ply = new dtplayer();
+var ply;
 var dtp_cb = ffi.Callback('void',[dtp_state_ptr],function(state)
 {
 	var info = state.deref();
@@ -110,6 +125,7 @@ var dtp_cb = ffi.Callback('void',[dtp_state_ptr],function(state)
     if(info.cur_status == player_status.PLAYER_STATUS_EXIT)
         ply.emit('play_end');
 });
+
 //===============================================
 // UI Part
 //===============================================
@@ -145,7 +161,7 @@ function handleOpenButton() {
   //$("#openFile").trigger("click");
 
     console.log('here we want to play a video');
-    var url = '../1.aac';
+    var url = '../1.mp4';
     var no_audio = -1;
     var no_video = -1
     var width = 720;
@@ -159,7 +175,7 @@ function handleOpenButton() {
     para.height = height;
     para.update_cb = dtp_cb;
 
-    //reg vo
+    ply = new dtplayer();
     ply.reg_vo(canvas_vo);
 
     ply.init(para);
@@ -193,5 +209,5 @@ onload = function() {
     onChosenFileToOpen($(this).val());
   });
 
-  gui.Window.get().show();
+   gui.Window.get().show();
 };
