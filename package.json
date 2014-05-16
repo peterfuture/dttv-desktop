@@ -1,13 +1,13 @@
 {
-  "name": "DTTV",
-  "version": "0.1.0",
-  "description": "Amazing player base on dtplayer and node-webkit.",
-  "main": "main.html",
-  "window": {
-    "width": 720,
-    "height": 600,
-    "show": false,
-    "title": "DTTV",
-    "toolbar": false
-  }
+	"name": "DTTV",
+	"version": "0.1.0",
+	"description": "Amazing player base on dtplayer and node-webkit.",
+	"main": "main.html",
+	"window": {
+	"width": 720,
+	"height": 600,
+	"show": true,
+	"title": "DTTV",
+	"toolbar": false
+	}
 }
