@@ -67,7 +67,6 @@ var player_status = {
 
 var canvas = document.getElementById("video-render");
 var context = canvas.getContext("2d");
-
 var canvas_vo = {
     id:1000,
     name:'canvas render',
@@ -81,17 +80,18 @@ var canvas_vo = {
 
         var picture = pic.deref();
         var imgdata = context.getImageData(0,0,720,480);
-        var data = picture.data0.deref();
+        var data = picture.data0;
+		var rgb_data = data.reinterpret(720*480*3);
         for(i=0,j=0;i<720*480*3;i+=3,j+=4)
         {
-            imgdata.data[j] = data+i;
-            imgdata.data[j+1] = data+i+1;
-            imgdata.data[j+2] = data+i+2;
+            imgdata.data[j] = rgb_data[i];
+            imgdata.data[j+1] = rgb_data[i+1];
+            imgdata.data[j+2] = rgb_data[i+2];
             imgdata.data[j+3] = 255;
         }
-
-        ctx.putImageData(imgdata,0,0);
-        console.log('canvas render one frame, pts'+ picture.pts + "width *4 = "+picture.linesize0);
+        context.putImageData(imgdata,0,0);
+		//console.log('length:'+rgb_data.length +'data:'+rgb_data[0]+'-'+rgb_data[2]+'-'+rgb_data[1000000]);
+        //console.log('canvas render one frame, pts'+ picture.pts + "width *3 = "+picture.linesize0);
         return 0;
     }
 };
@@ -159,7 +159,6 @@ var onChosenFileToOpen = function() {
 
 function handleOpenButton() {
   //$("#openFile").trigger("click");
-
     console.log('here we want to play a video');
     var url = '../1.mp4';
     var no_audio = -1;
