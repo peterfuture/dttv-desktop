@@ -74,7 +74,7 @@ var canvas_vo = {
         console.log('yeah, canvas init ok');
     },
     vo_stop:function(){
-        console.log('yeah, canvas stop ok');
+		console.log('yeah, canvas stop ok');
     },
     vo_render:function(pic){
 
@@ -123,7 +123,10 @@ var dtp_cb = ffi.Callback('void',[dtp_state_ptr],function(state)
     console.log('cur time(s):' + info.cur_time + '  status:' + sta + '  full time:' + info.full_time);
 
     if(info.cur_status == player_status.PLAYER_STATUS_EXIT)
+	{
+		canvas.width = canvas.width; // clear canvas
         ply.emit('play_end');
+	}
 });
 
 //===============================================
@@ -131,6 +134,7 @@ var dtp_cb = ffi.Callback('void',[dtp_state_ptr],function(state)
 //===============================================
 
 var openButton, stopButton;
+var pauseButton, ffButton, fbButton;
 var editor;
 var menu;
 var fileEntry;
@@ -138,12 +142,13 @@ var fileEntry;
 var gui = require("nw.gui");
 
 var onChosenFileToOpen = function(theFileEntry) {
+	
 	console.log('start to play '+ theFileEntry);
 	var url = theFileEntry;
     var no_audio = -1;
     var no_video = -1
-    var width = 720;
-    var height = 480;
+    var width = canvas.width;
+    var height = canvas.height;
 
     var para = new dtp_para();
     para.file_name = url;
@@ -153,6 +158,7 @@ var onChosenFileToOpen = function(theFileEntry) {
     para.height = height;
     para.update_cb = dtp_cb;
 
+	console.log('player para : width '+ width +' height '+height);
     ply = new dtplayer();
     ply.reg_vo(canvas_vo);
 
@@ -170,19 +176,39 @@ function handleStopButton() {
 		ply.stop();
 }
 
+function handlePauseButton() {
+	if(ply)
+		ply.pause();
+}
+
+function handleFFButton() {
+	if(ply)
+		ply.seek(10);
+}
+
+function handleFBButton() {
+	if(ply)
+		ply.seek(-10);
+}
+
 function initContextMenu() {
   menu = new gui.Menu();
 }
-
 
 onload = function() {
   initContextMenu();
 
   openButton = document.getElementById("open");
   stopButton = document.getElementById("stop");
+  pauseButton = document.getElementById("pause");
+  ffButton = document.getElementById("ff");
+  fbButton = document.getElementById("fb");
 
   openButton.addEventListener("click", handleOpenButton);
   stopButton.addEventListener("click", handleStopButton);
+  pauseButton.addEventListener("click", handlePauseButton);
+  ffButton.addEventListener("click", handleFFButton);
+  fbButton.addEventListener("click", handleFBButton);
  
   $("#openFile").change(function(evt) {
     onChosenFileToOpen($(this).val());
