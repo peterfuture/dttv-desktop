@@ -1,7 +1,34 @@
 DTTV
 ====
 
-An amazing player developed with node-webkit and dtplayer
+Simple player client developed with node-webkit.
+
+DTTV is an open-sourced project, published under GPLv3 for individual/personal users .
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+Introduction
+========
+
+DTTV is based on nodejs & nodewebkit , using dtplayer as multimedia core.
+
+
+Install
+========
+
+1 install node-webkit
+
+2 install ffmpeg & libav
+
+Test
+========
+
+nw ./
+
+Help
+=========
+
+bug report: peter_future@outlook.com 
 
 Tudo
 ====
