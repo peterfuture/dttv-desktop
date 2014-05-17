@@ -136,31 +136,10 @@ var menu;
 var fileEntry;
 
 var gui = require("nw.gui");
-var clipboard = gui.Clipboard.get();
-
-function playFile(theFileEntry) {
-  fs.readFile(theFileEntry, function (err, data) {
-    if (err) {
-      console.log("Read failed: " + err);
-    }
-
-    editor.setValue(String(data));
-  });
-}
 
 var onChosenFileToOpen = function(theFileEntry) {
-  playFile(theFileEntry);
-};
-
-var onChosenFileToOpen = function() {
-//  stopPlayer(theFileEntry);
-};
-
-
-function handleOpenButton() {
-  //$("#openFile").trigger("click");
-    console.log('here we want to play a video');
-    var url = '../1.mp4';
+	console.log('start to play '+ theFileEntry);
+	var url = theFileEntry;
     var no_audio = -1;
     var no_video = -1
     var width = 720;
@@ -179,12 +158,16 @@ function handleOpenButton() {
 
     ply.init(para);
     ply.start();
-    
+};
+
+function handleOpenButton() {
+  $("#openFile").trigger("click");
 }
 
 function handleStopButton() {
-  $("#stopFile").trigger("click");
-  ply.stop();
+	console.log('stop player');
+	if(ply)
+		ply.stop();
 }
 
 function initContextMenu() {
@@ -201,12 +184,9 @@ onload = function() {
   openButton.addEventListener("click", handleOpenButton);
   stopButton.addEventListener("click", handleStopButton);
  
-  $("#saveFile").change(function(evt) {
-    onChosenFileToStop($(this).val());
-  });
   $("#openFile").change(function(evt) {
     onChosenFileToOpen($(this).val());
   });
 
-   gui.Window.get().show();
+  gui.Window.get().show();
 };

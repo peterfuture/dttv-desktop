@@ -6,8 +6,8 @@
 	"window": {
 	"width": 720,
 	"height": 600,
-	"show": true,
 	"title": "DTTV",
+	"resizable": false,
 	"toolbar": false
 	}
 }
