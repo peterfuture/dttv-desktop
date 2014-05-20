@@ -8,17 +8,18 @@
         "url": "https://github.com/peterfuture/dttv-desktop"
     },
     "version": "0.1.0",
-    "license": "GPL-3.0",
-    "main": "main.html",
+    "license": "GPL-v3.0",
+    "main": "app://host/src/app/index.html",
     "window": {
         "title": "DTTV",
         "icon": "src/app/images/icon.png",
         "toolbar": false,
         "frame": false,
-        "width": 720,
-        "height": 600,
-        "resizable": true,
-        "toolbar": false
+        "width": 1100,
+        "height": 610,
+        "min_width": 990,
+        "min_height": 556,
+        "resizable": true
     },
     "dependencies": {
         "ffi": "*",
