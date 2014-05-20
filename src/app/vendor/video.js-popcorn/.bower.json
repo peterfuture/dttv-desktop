@@ -1,0 +1,26 @@
+{
+  "name": "video.js-popcornfix",
+  "description": "An HTML5 and Flash video player with a common API and skin for both. (Popcorn Time Fix)",
+  "version": "4.6.0",
+  "main": [
+    "dist/video-js/video.js",
+    "dist/video-js/video-js.css"
+  ],
+  "keywords": [
+    "videojs",
+    "html5",
+    "flash",
+    "video",
+    "player"
+  ],
+  "homepage": "https://github.com/popcorn-official/video.js",
+  "_release": "4.6.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v4.6.0",
+    "commit": "ba5413adff6e58e0b5a7d9ff17715b70d3d651e1"
+  },
+  "_source": "git://github.com/popcorn-official/video.js.git",
+  "_target": "4.6.0",
+  "_originalSource": "video.js-popcorn"
+}
