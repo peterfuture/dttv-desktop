@@ -1,13 +1,30 @@
 {
 	"name": "DTTV",
-	"version": "0.1.0",
 	"description": "Amazing player base on dtplayer and node-webkit.",
+	"homepage": "",
+  	"bugs": "https://github.com/peterfuture/dttv-desktop/issues",
+  	"repository": {
+    	    "type": "git",
+    	    "url": "https://github.com/peterfuture/dttv-desktop"
+  	},
+	"version": "0.1.0",
+	"license": "GPL-3.0",
 	"main": "main.html",
 	"window": {
-	"width": 720,
-	"height": 600,
-	"title": "DTTV",
-	"resizable": false,
-	"toolbar": false
+	    "title": "DTTV",
+            "icon": "src/app/images/icon.png",
+            "toolbar": false,
+            "frame": false,
+	    "width": 720,
+	    "height": 600,
+	    "resizable": true,
+	    "toolbar": false
+	}
+	"dependencies": {
+    	    "ffi": "1.13.1",
+    	    "ref": "0.4.4",
+    	    "ref-struct": "0.8.0"
+  	},
+	"devDependencies":{
 	}
 }
