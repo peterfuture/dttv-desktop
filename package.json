@@ -12,13 +12,13 @@
     "main": "app://host/src/app/index.html",
     "window": {
         "title": "DTTV",
-        "icon": "src/app/images/icon.png",
+        "icon": "",
         "toolbar": false,
-        "frame": false,
-        "width": 1100,
-        "height": 610,
-        "min_width": 990,
-        "min_height": 556,
+        "frame": true,
+        "width": 720,
+        "height": 600,
+        "min_width": 720,
+        "min_height": 480,
         "resizable": true
     },
     "dependencies": {
