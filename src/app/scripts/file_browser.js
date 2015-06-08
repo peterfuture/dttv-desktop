@@ -1,8 +1,31 @@
-global.$ = $;
+"use strict";
 
-var abar = require('address_bar');
-var folder_view = require('folder_view');
-var nwGui = require('nw.gui');
+var file_browser = angular.module('dttv.file_browser', []);
+
+file_browser.config(function($routeProvider){
+	$routeProvider
+			.when('/file_browser', {
+                templateUrl : 'views/file_browser.html',
+            })
+});
+
+var file_browser_controller = file_browser.controller('file_browser_controller', ['$scope', '$routeParams',function ($scope, $routeParams) {
+		//--------------------------------
+		$scope.cur ={};
+
+		$scope.cd=function(){
+
+		}
+
+		//--------------------------------
+	}]);
+
+
+  global.$ = $;
+
+  var abar = require('address_bar');
+  var folder_view = require('folder_view');
+  var nwGui = require('nw.gui');
 
 // append default actions to menu for OSX
 var initMenu = function () {
@@ -36,11 +59,11 @@ var App = {
   play: function (path) {
     var uri = path;
     var params = {toolbar: false, resizable: false, show: true, height: 480, width: 720};
-    /*
+
     var playWindow = nwGui.Window.open('play.html', params);
     playWindow.on('document-end', function() {
       playWindow.focus();
-    });*/
+    });
     location.href="play.html";
     var video_path=document.getElementById("video_path");
     video_path.text("Hello");
