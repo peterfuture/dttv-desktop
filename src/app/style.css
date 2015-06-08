@@ -1,63 +1,46 @@
+* {
+  -webkit-user-select: none;
+}
+
 body {
-  margin: 0;
+  background-image: url('images/htmlbg.png')
+}
+
+.files {
   padding: 0;
-  margin-top: 5px;
-  overflow: hidden;
-}
-
-button {
   margin: 0;
 }
 
-.CodeMirror {
-  margin: 0;
-  padding: 0;
-}
-
-.CodeMirror-scroll {
-  height: auto;
-  overflow-y: hidden;
-  overflow-x: auto;
-}
-
-#editor {
-  position: absolute;
-//  top: 37px;
-  top: 80px;
-  bottom: 24px;
-  left: 0;
-  right: 0;
-  background: #262626;
-}
-
-#video-render {
-  position: absolute;
-//  top: 37px;
-  top: 80px;
-  bottom: 24px;
-  left: 0;
-  right: 0;
-  background: #262626;
-}
-
-
-.info {
-  font-family: monospace;
-  white-space: nowrap;
-  position: absolute;
-  bottom: 0;
-  background: #eee;
+.file {
   padding: 2px;
-  height: 20px;
-  left: 0;
-  right: 0;
+  margin: 2px;
+  width: 80px;
+  display: inline-block;
+
+  text-align: center;
+  vertical-align: top;
 }
 
-.info label {
-  font-weight: bold;
+.file.focus {
+  background-color: #08C;
+  -webkit-border-radius: 4px;
 }
 
-.buttons {
-  padding: 2px;
-  height: 25px;
+.file .name {
+  width: 80px;
+  word-wrap: break-word;
+}
+
+.file.focus .name {
+  color: white;
+}
+
+.file .icon {
+  margin: auto;
+  margin-top: 0;
+  width: 60px;
+}
+
+.file.focus .icon {
+  -webkit-filter: invert(20%);
 }

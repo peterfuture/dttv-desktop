@@ -1,49 +1,11 @@
 {
-    "name": "DTTV",
-    "description": "Amazing player base on dtplayer and node-webkit.",
-    "homepage": "",
-    "bugs": "https://github.com/peterfuture/dttv-desktop/issues",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/peterfuture/dttv-desktop"
-    },
-    "version": "0.1.0",
-    "license": "GPL-v3.0",
-    "main": "app://host/src/app/index.html",
-    "window": {
-        "title": "DTTV",
-        "icon": "",
-        "toolbar": false,
-        "frame": true,
-        "width": 720,
-        "height": 600,
-        "min_width": 720,
-        "min_height": 480,
-        "resizable": true
-    },
-    "dependencies": {
-        "ffi": "*",
-        "ref": "*",
-        "ref-struct": "*",
-        "URIjs": "1.13.1",
-        "adm-zip": "0.4.4",
-        "async": "0.8.0",
-        "i18n": "0.4.1",
-        "iconv-lite": "0.2.11",
-        "jschardet": "1.1.0",
-        "mime": "^1.2.11",
-        "moment": "^2.6.0",
-        "nedb": "~0.10.5",
-        "opensrt_js": ">=0.0.5",
-        "peerflix": "0.9.x",
-        "q": "2.0.x",
-        "raven": "^0.6.3",
-        "read-torrent": "1.0.x",
-        "request": "2.34.0",
-        "rimraf": "^2.2.6",
-        "underscore": "1.6.x",
-        "zlib": "1.0.5"
-    },
-    "devDependencies": {
-    }
+  "name": "FileExplorer",
+  "description": "Simple file explorer.",
+  "version": "0.1",
+  "main": "src/app/index.html",
+  "window": {
+    "toolbar": false,
+    "width": 660,
+    "height": 500
+  }
 }

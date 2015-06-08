@@ -172,6 +172,7 @@ var onChosenFileToOpen = function(theFileEntry) {
 };
 
 function handleOpenButton() {
+  alert("open");
   $("#openFile").trigger("click");
 }
 
