@@ -4,28 +4,28 @@ var file_browser = angular.module('dttv.file_browser', []);
 
 file_browser.config(function($routeProvider){
 	$routeProvider
-			.when('/file_browser', {
-                templateUrl : 'views/file_browser.html',
-            })
+		.when('/file_browser', {
+    	templateUrl : 'views/file_browser.html',
+    })
 });
 
 var file_browser_controller = file_browser.controller('file_browser_controller', ['$scope', '$routeParams',function ($scope, $routeParams) {
 		//--------------------------------
 		$scope.cur ={};
-
-		$scope.cd=function(){
+		$scope.cd = function(){
 
 		}
 
+		// get file list and bind to html element
+		bind_files();
 		//--------------------------------
-	}]);
+}]);
 
 
-  global.$ = $;
-
-  var abar = require('address_bar');
-  var folder_view = require('folder_view');
-  var nwGui = require('nw.gui');
+global.$ = $;
+var abar = require('address_bar');
+var folder_view = require('folder_view');
+var nwGui = require('nw.gui');
 
 // append default actions to menu for OSX
 var initMenu = function () {
@@ -46,7 +46,7 @@ var App = {
   // show "about" window
   about: function () {
     var params = {toolbar: false, resizable: false, show: true, height: 120, width: 350};
-    var aboutWindow = nwGui.Window.open('about.html', params);
+    var aboutWindow = nwGui.Window.open('views/about.html', params);
     aboutWindow.on('document-end', function() {
       aboutWindow.focus();
       // open link in default browser
@@ -97,8 +97,8 @@ var App = {
   }
 };
 
-$(document).ready(function() {
-  initMenu();
+var bind_files = function() {
+  //initMenu();
 
   var folder = new folder_view.Folder($('#files'));
   var addressbar = new abar.AddressBar($('#addressbar'));
@@ -128,4 +128,4 @@ $(document).ready(function() {
     event.preventDefault();
     App.cd(this);
   });
-});
+}

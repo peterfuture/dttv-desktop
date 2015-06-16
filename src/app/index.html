@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="dttv">
 <head>
-  <title>File Explorer</title>
+  <title>DTTV</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
 </head>
 
-<body>
+<body >
+
+  <div>
+    <ul class="nav nav-pills">
+      <li role="presentation" class="active"><a href="#file_browser">Local Video</a></li>
+      <li role="presentation"><a href="#online_video">Network video</a></li>
+      <li role="presentation"><a href="#">About</a></li>
+    </ul>
+  </div>
 
   <div class="main">
 		<div ng-view></div>
@@ -20,5 +28,7 @@
 <script src="bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="scripts/app.js"></script>
 <script type="text/javascript" src="scripts/file_browser.js"></script>
+<script type="text/javascript" src="scripts/online_video.js"></script>
+
 </body>
 </html>
