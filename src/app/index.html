@@ -13,13 +13,29 @@
     <ul class="nav nav-pills">
       <li role="presentation" class="active"><a href="#file_browser">Local Video</a></li>
       <li role="presentation"><a href="#online_video">Network video</a></li>
-      <li role="presentation"><a href="#">About</a></li>
+      <li role="presentation"><a href="#" onclick="about()">About</a></li>
     </ul>
   </div>
 
   <div class="main">
 		<div ng-view></div>
 	</div>
+
+<script>
+var nwGui = require('nw.gui');
+var about = function () {
+  var params = {toolbar: false, resizable: false, show: true, height: 120, width: 350};
+  var aboutWindow = nwGui.Window.open('views/about.html', params);
+  aboutWindow.on('document-end', function() {
+    aboutWindow.focus();
+    // open link in default browser
+    $(aboutWindow.window.document).find('a').bind('click', function (e) {
+      e.preventDefault();
+      nwGui.Shell.openExternal(this.href);
+    });
+  });
+}
+</script>
 
 <script type="text/javascript" src="js/jquery-1.7.2.js"></script>
 <script src="angularjs/1.2.16/angular.js"></script>

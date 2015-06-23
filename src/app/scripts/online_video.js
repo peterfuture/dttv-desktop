@@ -16,6 +16,5 @@ var online_video_controller = file_browser.controller('online_video_controller',
 			alert("try to play" + path);
 		}
 
-
 		//--------------------------------
 }]);

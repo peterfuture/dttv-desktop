@@ -1,11 +1,25 @@
 {
   "name": "DTTV",
-  "description": "video player",
-  "version": "0.1",
+  "description": "dttv demo base on dtplayer and node-webkit.",
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/peterfuture/dttv-desktop"
+  },
+  "version": "0.1.0",
+  "license": "MIT",
   "main": "src/app/index.html",
   "window": {
     "toolbar": false,
     "width": 720,
     "height": 480
+  },
+  "dependencies": {
+    "ref":"*",
+    "ref-struct":"*",
+    "ffi":"*",
+    "jade":"*",
+    "ms":"*"
+  },
+  "devDependencies": {
   }
 }
