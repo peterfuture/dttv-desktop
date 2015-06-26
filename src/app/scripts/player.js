@@ -33,13 +33,13 @@ var context = canvas.getContext("2d");
 var canvas_vo = {
     id:1000,
     name:'canvas render',
-    vo_init:function(){
+    vo_init:function(p){
         console.log('yeah, canvas init ok');
     },
-    vo_stop:function(){
-		console.log('yeah, canvas stop ok');
+    vo_stop:function(p){
+		    console.log('yeah, canvas stop ok');
     },
-    vo_render:function(pic){
+    vo_render:function(p, pic){
         var x_start = 0;
         var y_start = 0;
         var width = canvas.width;
@@ -130,6 +130,7 @@ var dtp_para = Struct(
     disable_hw_vcodec:'int',
     disable_hw_scodec:'int',
     video_pixel_format:'int',
+
     width:'int',
     height:'int',
     cookie:voidptr,
