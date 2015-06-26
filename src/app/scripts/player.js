@@ -27,6 +27,42 @@ win.on('focus', function () {
   start_play(play_url);
 });
 
+var canvas = document.getElementById("video-render");
+var context = canvas.getContext("2d");
+
+var canvas_vo = {
+    id:1000,
+    name:'canvas render',
+    vo_init:function(){
+        console.log('yeah, canvas init ok');
+    },
+    vo_stop:function(){
+		console.log('yeah, canvas stop ok');
+    },
+    vo_render:function(pic){
+        var x_start = 0;
+        var y_start = 0;
+        var width = canvas.width;
+        var height = canvas.height;
+        var rgb_lengh = width*height*3;
+        var picture = pic.deref();
+        var imgdata = context.getImageData(x_start,y_start,width,height);
+        var data = picture.data0;
+
+        var rgb_data = data.reinterpret(rgb_lengh);
+        var i,j;
+        for(i=0,j=0;i<rgb_lengh;i+=3,j+=4)
+        {
+            imgdata.data[j] = rgb_data[i];
+            imgdata.data[j+1] = rgb_data[i+1];
+            imgdata.data[j+2] = rgb_data[i+2];
+            imgdata.data[j+3] = 255;
+        }
+        context.putImageData(imgdata,x_start,y_start);
+        return 0;
+    }
+};
+
 var ply;
 var start_play = function(url) {
 
@@ -40,6 +76,7 @@ var start_play = function(url) {
   para.file_name = url;
   para.no_audio = no_audio;
   para.no_video = no_video;
+  para.video_pixel_format = 2;
   para.width = width;
   para.height = height;
   para.update_cb = dtp_cb;
@@ -92,6 +129,7 @@ var dtp_para = Struct(
     disable_hw_acodec:'int',
     disable_hw_vcodec:'int',
     disable_hw_scodec:'int',
+    video_pixel_format:'int',
     width:'int',
     height:'int',
     cookie:voidptr,
@@ -122,42 +160,6 @@ var player_status = {
     PLAYER_STATUS_STOP:           12,
     PLAYER_STATUS_PLAYEND:        13,
     PLAYER_STATUS_EXIT:           14
-};
-
-var canvas = document.getElementById("video-render");
-var context = canvas.getContext("2d");
-
-var canvas_vo = {
-    id:1000,
-    name:'canvas render',
-    vo_init:function(){
-        console.log('yeah, canvas init ok');
-    },
-    vo_stop:function(){
-		console.log('yeah, canvas stop ok');
-    },
-    vo_render:function(pic){
-        var x_start = 0;
-        var y_start = 0;
-        var width = canvas.width;
-        var height = canvas.height;
-        var rgb_lengh = width*height*3;
-        var picture = pic.deref();
-        var imgdata = context.getImageData(x_start,y_start,width,height);
-        var data = picture.data0;
-
-        var rgb_data = data.reinterpret(rgb_lengh);
-        var i,j;
-        for(i=0,j=0;i<rgb_lengh;i+=3,j+=4)
-        {
-            imgdata.data[j] = rgb_data[i];
-            imgdata.data[j+1] = rgb_data[i+1];
-            imgdata.data[j+2] = rgb_data[i+2];
-            imgdata.data[j+3] = 255;
-        }
-        context.putImageData(imgdata,x_start,y_start);
-        return 0;
-    }
 };
 
 var dtp_cb = ffi.Callback('int',[voidptr,dtp_state_ptr],function(cookie, state)
