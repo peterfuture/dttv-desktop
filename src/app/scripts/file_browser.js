@@ -32,8 +32,8 @@ var file_browser_app = {
 
 		var playWindow = nwGui.Window.open('play.html', params);
 		playWindow.on('document-end', function() {
-			playWindow.focus();
 			playWindow.window.play_url = path;
+			playWindow.focus();
 		});
 
 		/*
