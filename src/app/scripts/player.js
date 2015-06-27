@@ -157,23 +157,31 @@ var canvas_vo = {
 };
 
 var start_play = function(url) {
-
-	console.log('start to play '+ url);
-  var no_audio = -1;
-  var no_video = -1
-  var width = canvas.width;
-  var height = canvas.height;
-
+  console.log('start to play '+ url);
+  // tips: need init all the elements -- !!!
   var para = new dtp_para();
   para.file_name = url;
-  para.no_audio = no_audio;
-  para.no_video = no_video;
+  para.audio_index = -1;
+  para.video_index = -1;
+  para.sub_index = -1;
+
+  para.loop_mode = 0;
+  para.disable_audio = 0;
+  para.disable_video = 0;
+  para.disable_sub = 0;
+  para.disable_avsync = 0;
+
+  para.disable_hw_acodec = 0;
+  para.disable_hw_vcodec = 0;
+  para.disable_hw_scodec = 0;
   para.video_pixel_format = 2;
-  para.width = width;
-  para.height = height;
+
+  para.width = canvas.width;
+  para.height = canvas.height;
+  para.cookie = null;
   para.update_cb = dtp_cb;
 
-	console.log('player para : width '+ width +' height '+height);
+  console.log('player para : width '+ para.width +' height '+ para.height);
   g_player = new dtplayer();
   g_player.reg_vo(canvas_vo);
 
