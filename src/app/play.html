@@ -2,21 +2,23 @@
 <html>
 <head>
   <title>DTTV</title>
-  <link rel="stylesheet" href="css/style.css">
-
+  <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+  <script type="text/javascript" src="js/jquery-1.7.2.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-  <div class="buttons">
-  	<button id="open"> Open </button>
-  	<button id="pause"> Pause </button>
-  	<button id="ff"> FF </button>
-  	<button id="fb"> FB </button>
-  	<button id="stop"> Stop </button>
+  <div>
+    <canvas id="video-render" width="720" height="480"> </canvas>
   </div>
-  <canvas id="video-render" width="720" height="480"> </canvas>
 
-  <script type="text/javascript" src="scripts/player.js"></script>
+  <div class="progress">
+   <div class="progress-bar" role="progressbar" aria-valuenow="60"
+      aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
+      <span class="sr-only">40% 完成</span>
+   </div>
+ </div>
+
 </body>
 
 </html>

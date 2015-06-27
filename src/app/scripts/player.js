@@ -85,8 +85,8 @@ var start_play = function(url) {
   ply = new dtplayer();
   ply.reg_vo(canvas_vo);
 
-  ply.init(para);
-  ply.start();
+  //ply.init(para);
+  //ply.start();
 };
 
 

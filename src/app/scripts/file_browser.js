@@ -28,7 +28,7 @@ var file_browser_controller = file_browser.controller('file_browser_controller',
 var file_browser_app = {
 	play: function (path) {
 		var uri = path;
-		var params = {toolbar: false, resizable: false, show: true, height: 480, width: 720};
+		var params = {toolbar: false, resizable: false, show: true, width: 800,height: 600};
 
 		var playWindow = nwGui.Window.open('play.html', params);
 		playWindow.on('document-end', function() {
