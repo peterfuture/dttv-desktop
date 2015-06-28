@@ -105,7 +105,8 @@ var dtp_cb = ffi.Callback('int',[voidptr,dtp_state_ptr],function(cookie, state)
     };
 
     console.log('cur time(s):' + info.cur_time + '  status:' + sta + '  full time:' + info.full_time);
-
+    $('#cur_time').text(info.cur_time);
+    $('#full_time').text(info.full_time);
     if(info.cur_status == player_status.PLAYER_STATUS_EXIT && g_player)
         g_player.emit('play_end');
     return 0;
@@ -122,6 +123,8 @@ var context = canvas.getContext("2d");
 var btn_pause = document.getElementById("btn_pause");
 var btn_close = document.getElementById("btn_close");
 var progress = document.getElementById("progress");
+var label_cur_time = document.getElementById("cur_time");
+var label_full_time = document.getElementById("full_time");
 
 var canvas_vo = {
     id:1000,
