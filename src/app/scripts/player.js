@@ -107,6 +107,10 @@ var dtp_cb = ffi.Callback('int',[voidptr,dtp_state_ptr],function(cookie, state)
     console.log('cur time(s):' + info.cur_time + '  status:' + sta + '  full time:' + info.full_time);
     $('#cur_time').text(info.cur_time);
     $('#full_time').text(info.full_time);
+    var step = info.cur_time * 100 / info.full_time;
+    var str_step = step + "%";
+    $("#progress").css("width", str_step);
+
     if(info.cur_status == player_status.PLAYER_STATUS_EXIT && g_player)
         g_player.emit('play_end');
     return 0;
