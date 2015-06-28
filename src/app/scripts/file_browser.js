@@ -1,8 +1,8 @@
 "use strict";
 
 global.$ = $;
-var abar = require('address_bar');
-var folder_view = require('folder_view');
+var abar = require(process.cwd()+'/src/app/scripts/address_bar.js');
+var folder_view = require(process.cwd()+'/src/app/scripts/folder_view.js');
 var nwGui = require('nw.gui');
 
 var file_browser = angular.module('dttv.file_browser', []);

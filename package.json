@@ -18,7 +18,9 @@
     "ref-struct":"*",
     "ffi":"*",
     "jade":"*",
-    "ms":"*"
+    "ms":"*",
+    "mime":"*",
+    "underscore":"*"
   },
   "devDependencies": {
   }
