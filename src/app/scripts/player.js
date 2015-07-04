@@ -144,21 +144,31 @@ var canvas_vo = {
         var y_start = 0;
         var width = canvas.width;
         var height = canvas.height;
-        var rgb_lengh = width*height*3;
+        var rgb_lengh = width*height*4;
         var picture = pic.deref();
-        var imgdata = context.getImageData(x_start,y_start,width,height);
+        //var imgdata = context.getImageData(x_start,y_start,width,height);
         var data = picture.data0;
 
+        var pre = new Date().getTime();
+
         var rgb_data = data.reinterpret(rgb_lengh);
+        //var imgdata = new ImageData(rgb_data, canvas.width, canvas.height);
+        var imgdata = context.createImageData(canvas.width, canvas.height);
+        imgdata.data.set(rgb_data);
+        /*
         var i,j;
-        for(i=0,j=0;i<rgb_lengh;i+=3,j+=4)
+        for(i=0,j=0;i<rgb_lengh;i+=4,j+=4)
         {
+
             imgdata.data[j] = rgb_data[i];
             imgdata.data[j+1] = rgb_data[i+1];
             imgdata.data[j+2] = rgb_data[i+2];
-            imgdata.data[j+3] = 255;
+            imgdata.data[j+3] = rgb_data[i+3];
+
         }
+        */
         context.putImageData(imgdata,x_start,y_start);
+        console.log("last time:" + (new Date().getTime() - pre) + "ms");
         return 0;
     }
 };
@@ -181,7 +191,7 @@ var start_play = function(url) {
   para.disable_hw_acodec = 0;
   para.disable_hw_vcodec = 0;
   para.disable_hw_scodec = 0;
-  para.video_pixel_format = 2;
+  para.video_pixel_format = 3;
 
   para.width = canvas.width;
   para.height = canvas.height;
