@@ -130,6 +130,8 @@ var progress = document.getElementById("progress");
 var label_cur_time = document.getElementById("cur_time");
 var label_full_time = document.getElementById("full_time");
 
+var player_started = 0;
+
 var canvas_vo = {
     id:1000,
     name:'H5 Canvas Render',
@@ -174,6 +176,7 @@ var canvas_vo = {
 };
 
 var start_play = function(url) {
+
   console.log('start to play '+ url);
   // tips: need init all the elements -- !!!
   var para = new dtp_para();
@@ -213,9 +216,13 @@ var pause_play = function () {
 var stop_play = function () {
   g_player.stop();
   g_player = null;
+  player_started = 0;
 };
 
 win.on('focus', function () {
   console.log(play_url);
+  if(player_started === 1)
+    return;
   start_play(play_url);
+  player_started = 1;
 });
