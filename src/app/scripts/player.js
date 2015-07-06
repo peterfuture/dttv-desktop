@@ -148,16 +148,16 @@ var canvas_vo = {
         var height = canvas.height;
         var rgb_lengh = width*height*4;
         var picture = pic.deref();
-        //var imgdata = context.getImageData(x_start,y_start,width,height);
-        var data = picture.data0;
 
+        var data = picture.data0;
         var pre = new Date().getTime();
 
         var rgb_data = data.reinterpret(rgb_lengh);
         //var imgdata = new ImageData(rgb_data, canvas.width, canvas.height);
-        var imgdata = context.createImageData(canvas.width, canvas.height);
+        //var imgdata = context.createImageData(canvas.width, canvas.height);
+        var imgdata = context.getImageData(x_start,y_start,width,height);
         imgdata.data.set(rgb_data);
-        /*
+/*
         var i,j;
         for(i=0,j=0;i<rgb_lengh;i+=4,j+=4)
         {
@@ -168,9 +168,10 @@ var canvas_vo = {
             imgdata.data[j+3] = rgb_data[i+3];
 
         }
-        */
+  */
         context.putImageData(imgdata,x_start,y_start);
-        console.log("last time:" + (new Date().getTime() - pre) + "ms");
+        var now = new Date().getTime();
+        console.log("now:" + now + "last time:" + (now-pre) + "ms" );
         return 0;
     }
 };
@@ -217,6 +218,7 @@ var stop_play = function () {
   g_player.stop();
   g_player = null;
   player_started = 0;
+  win.close();
 };
 
 win.on('focus', function () {
