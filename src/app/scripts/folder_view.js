@@ -56,4 +56,4 @@ Folder.prototype.open = function(dir) {
   });
 }
 
-exports.Folder = Folder; 
+exports.Folder = Folder;

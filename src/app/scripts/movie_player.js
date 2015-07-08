@@ -1,8 +1,8 @@
 "use strict";
 
-var online_video = angular.module('dttv.movie_player', []);
+var movie_player = angular.module('dttv.movie_player', []);
 
-online_video.config(function($routeProvider){
+movie_player.config(function($routeProvider){
 	$routeProvider
   .when('/movie_player', {
         templateUrl : 'views/movie_player.html',

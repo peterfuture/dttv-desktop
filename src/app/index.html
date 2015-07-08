@@ -21,21 +21,6 @@
 		<div ng-view></div>
 	</div>
 
-<script>
-var nwGui = require('nw.gui');
-var about = function () {
-  var params = {toolbar: false, resizable: false, show: true, height: 120, width: 350};
-  var aboutWindow = nwGui.Window.open('views/about.html', params);
-  aboutWindow.on('document-end', function() {
-    aboutWindow.focus();
-    // open link in default browser
-    $(aboutWindow.window.document).find('a').bind('click', function (e) {
-      e.preventDefault();
-      nwGui.Shell.openExternal(this.href);
-    });
-  });
-}
-</script>
 <script type="text/javascript" src="js/jquery1.11.2.min.js"></script>
 <script src="angularjs/1.2.16/angular.js"></script>
 <script src="angularjs/1.2.16/angular-route.min.js"></script>
@@ -44,8 +29,6 @@ var about = function () {
 <script type="text/javascript" src="scripts/app.js"></script>
 <script type="text/javascript" src="scripts/file_browser.js"></script>
 <script type="text/javascript" src="scripts/online_video.js"></script>
-<script type="text/javascript" src="scripts/address_bar.js"></script>
-<script type="text/javascript" src="scripts/folder_view.js"></script>
 <script type="text/javascript" src="scripts/movie_player.js"></script>
 
 </body>
