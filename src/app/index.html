@@ -9,11 +9,12 @@
 
 <body >
 
+  <!-- navigator -->
   <div>
     <ul class="nav nav-pills">
-      <li role="presentation" class="active"><a href="#file_browser">Local Video</a></li>
-      <li role="presentation"><a href="#online_video">Network video</a></li>
-      <li role="presentation"><a href="#" onclick="about()">About</a></li>
+      <li role="presentation" class="active"><a href="#movie_browser">local movie</a></li>
+      <li role="presentation"><a href="#movie_browser">online movie</a></li>
+      <li role="presentation"><a href="#" onclick="about()">about</a></li>
     </ul>
   </div>
 
@@ -21,15 +22,18 @@
 		<div ng-view></div>
 	</div>
 
-<script type="text/javascript" src="js/jquery1.11.2.min.js"></script>
-<script src="angularjs/1.2.16/angular.js"></script>
-<script src="angularjs/1.2.16/angular-route.min.js"></script>
-<script src="js/ui-bootstrap-tpls-0.12.1.min.js"></script>
-<script src="bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="scripts/app.js"></script>
-<script type="text/javascript" src="scripts/file_browser.js"></script>
-<script type="text/javascript" src="scripts/online_video.js"></script>
-<script type="text/javascript" src="scripts/movie_player.js"></script>
+  <!-- 3rd party Dependencies -->
+  <script type="text/javascript" src="js/jquery1.11.2.min.js"></script>
+  <script src="angularjs/1.2.16/angular.js"></script>
+  <script src="angularjs/1.2.16/angular-route.min.js"></script>
+  <script src="js/ui-bootstrap-tpls-0.12.1.min.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+
+  <!-- dttv Dependencies -->
+  <script type="text/javascript" src="app.js"></script>
+  <!--<script type="text/javascript" src="scripts/controller/file_browsers.js"></script>-->
+  <script type="text/javascript" src="scripts/controller/movie_browser.js"></script>
+  <script type="text/javascript" src="scripts/controller/movie_player.js"></script>
 
 </body>
 </html>

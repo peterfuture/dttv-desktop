@@ -1,12 +1,15 @@
 "use strict";
 
 var dttv = angular.module('dttv',
-	['ui.bootstrap','ngRoute',
-	'dttv.file_browser', 'dttv.online_video',
-	'dttv.movie_player']);
+	[
+		'ui.bootstrap','ngRoute',
+		'dttv.movie_browser',
+		'dttv.movie_player'
+	]
+);
 
-dttv.config(function($routeProvider){
-	$routeProvider.otherwise({ redirectTo: '/file_browser' });
+dttv.config(function($routeProvider) {
+	$routeProvider.otherwise({ redirectTo: '/movie_browser' });
 });
 
 var nwGui = require('nw.gui');
