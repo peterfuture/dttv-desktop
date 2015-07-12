@@ -37,7 +37,7 @@ var file_browser_app = {
 		});*/
 
 		// switch to movie player home
-		location.href="#movie_player";
+		location.href="#movie_player/";
 
 		/*
 		location.href="play.html";

@@ -12,10 +12,10 @@ movie_browser.config(function($routeProvider){
 var controller_movie_browser = movie_browser.controller('controller_movie_browser', ['$scope', '$routeParams',function ($scope, $routeParams) {
 
 	// load & display movies
-	
+
 	$scope.play = function()
 	{
-		location.href="#movie_player";
+		location.href="#movie_player/";
 	};
 
 
