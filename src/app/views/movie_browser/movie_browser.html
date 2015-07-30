@@ -1,6 +1,20 @@
 <div ng-controller="controller_movie_browser">
-  <p>welcome to dttv</p>
 
-  <button ng-click="play();">play</button>
+  <div style="padding: 100px 100px 10px;">
+     <form class="bs-example bs-example-form" role="form">
+        <div class="row">
+           <div class="col-lg-6">
+              <div class="input-group">
+                 <input type="text" ng-model="url_to_play" class="form-control">
+                 <span class="input-group-btn">
+                    <button class="btn btn-default" ng-click="play();" type="button">
+                       play
+                    </button>
+                 </span>
+              </div><!-- /input-group -->
+           </div><!-- /.col-lg-6 -->
+        </div><!-- /.row -->
+     </form>
+  </div>
 
 </div>

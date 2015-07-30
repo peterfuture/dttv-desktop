@@ -4,7 +4,7 @@ var movie_player = angular.module('dttv.movie_player', []);
 
 movie_player.config(function($routeProvider){
 	$routeProvider
-  .when('/movie_player', {
+  .when('/movie_player/', {
         templateUrl : 'views/movie_player/movie_player.html',
   })
 });
@@ -231,9 +231,11 @@ var controller_movie_player = movie_player.controller('controller_movie_player',
 			player_running = 0;
 			location.href="#movie_browser";
 		};
+
 		if(player_running == 0)
 		{
-			$scope.start_play("/home/sunjiwei/ShareVM/test1.avi");
+			alert(window.url_to_play);
+			$scope.start_play(window.url_to_play);
 			player_running = 1;
 		}
 
