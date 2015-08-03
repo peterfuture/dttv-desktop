@@ -122,6 +122,9 @@ var controller_movie_player = movie_player.controller('controller_movie_player',
 		    var str_step = step + "%";
 		    $("#progress").css("width", str_step);
 
+				//$("#progress").setAttribute("aria-valuemax",info.full_time*1000);
+				//$("#progress").setAttribute("aria-valuenow",info.cur_time*1000);
+
 		    if(info.cur_status == player_status.PLAYER_STATUS_EXIT && g_player)
 		        g_player.emit('play_end');
 		    return 0;
@@ -234,8 +237,7 @@ var controller_movie_player = movie_player.controller('controller_movie_player',
 
 		if(player_running == 0)
 		{
-			alert(window.url_to_play);
-			$scope.start_play(window.url_to_play);
+			//$scope.start_play(window.url_to_play);
 			player_running = 1;
 		}
 

@@ -12,14 +12,12 @@ movie_browser.config(function($routeProvider){
 var controller_movie_browser = movie_browser.controller('controller_movie_browser', ['$scope', '$routeParams',function ($scope, $routeParams) {
 
 	// load & display movies
-	$scope.url_to_play = "input url to play";
+	$scope.url_to_play = "http://vjs.zencdn.net/v/oceans.mp4";
 
 	$scope.play = function()
 	{
 		window.url_to_play = $scope.url_to_play;
-		var url = "#movie_player/";
-		alert(url);
-		location.href=url;
+		location.href="#movie_player/";
 	};
 
 
