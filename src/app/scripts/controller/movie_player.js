@@ -237,7 +237,7 @@ var controller_movie_player = movie_player.controller('controller_movie_player',
 
 		if(player_running == 0)
 		{
-			//$scope.start_play(window.url_to_play);
+			$scope.start_play(window.url_to_play);
 			player_running = 1;
 		}
 

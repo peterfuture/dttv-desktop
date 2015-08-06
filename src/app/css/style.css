@@ -1,41 +1,35 @@
 body{
 	background-color: #F2F2F0;
-}
-
-.video_wrap{
-	width: 800px;
-	height: 600px;
-	margin: 10px auto;
-	box-shadow: 0px 0px 20px #D8D8D8;
-	border-radius: 10px;
-
-	width: 800;
-	height: 600px;
-	margin: 50px auto;
-	box-shadow: 0px 0px 20px #D8D8D8;
-	border-radius: 10px;
+	TEXT-ALIGN: center;
 }
 
 .video_canvas {
+	width: 700;
+	height:500;
+	margin: 10px auto;
+	position: relative;
 	backgroud-color:black;
 }
 
 .video_control{
   width: 600px;
-	height: 100px;
-	margin:　10px auto;
+	height: 50px;
+	margin:　0px auto;
 	position: relative;
   border-radius: 5px;
-  #background-color: #333333;
+	TEXT-ALIGN: center;
+  background-color: #333333;
 }
 
 /*播放进度条*/
 .progress_bar{
-	width: 500px;
+	display: inline-block;
+	width: 400px;
 	height: 10px;
 	background-color: #E5E5E3;
 	border-radius: 5px;
-	margin: 0 auto;
+	margin: auto;
+	top: 30;
 	position: relative;
 	cursor: pointer;
 }
@@ -44,20 +38,14 @@ body{
 	height: 10px;
 	background-color: #E74D3C;
 	border-radius: 5px;
-	position: absolute;
-	z-index: 11;
+	position: relative;
+	#z-index: 11;
 }
 .buffer{
 	width: 0px;
 	height: 10px;
 	background-color: #D5D5D5;
 	border-radius: 5px;
-	position: absolute;
-	z-index: 1;
-}
-
-/*播放按钮*/
-.action_button{
-	height: 115px;
 	position: relative;
+	#z-index: 1;
 }

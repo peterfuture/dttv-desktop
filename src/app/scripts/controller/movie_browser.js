@@ -17,7 +17,7 @@ var controller_movie_browser = movie_browser.controller('controller_movie_browse
 	$scope.play = function()
 	{
 		window.url_to_play = $scope.url_to_play;
-		location.href="#movie_player/";
+		location.href="#movie_player";
 	};
 
 
