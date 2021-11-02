@@ -25,11 +25,3 @@ Test
 
 nw ./
 
-Help
-=========
-
-bug report: peter_future@outlook.com 
-
-Tudo
-====
-https://trello.com/b/dWSbnjJx/dttv
